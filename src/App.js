@@ -119,13 +119,13 @@ function App() {
 
   const connected = () => {
     document.getElementById("connectbtn").style.display = "none";
-    document.getElementById("connect-phone").style.display = "none";
+     
     document.getElementById("text1").style.display = "none";
   };
 
   const changeAbout = () => {
     document.getElementById("connectbtn").style.display = "none";
-    document.getElementById("connect-phone").style.display = "none";
+     
     document.getElementById("text1").style.display = "none";
     document.getElementById("text1").style.display = "flex";
     document.getElementById("comingsoon").style.display = "none";
@@ -133,7 +133,7 @@ function App() {
 
   const changeTeam = () => {
     document.getElementById("connectbtn").style.display = "none";
-    document.getElementById("connect-phone").style.display = "none";
+     
     document.getElementById("text1").style.display = "none";
     document.getElementById("comingsoon").style.display = "none";
   };
@@ -141,21 +141,21 @@ function App() {
 
   const changeMint = () => {
     document.getElementById("connectbtn").style.display = "flex";
-    document.getElementById("connect-phone").style.display = "flex";
+
     document.getElementById("text1").style.display = "none";
     document.getElementById("comingsoon").style.display = "none";
   };
 
   const changeMarket = () => {
     document.getElementById("connectbtn").style.display = "none";
-    document.getElementById("connect-phone").style.display = "none";
+     
     document.getElementById("text1").style.display = "none";
     document.getElementById("comingsoon").style.display = "block";
   };
 
   const changeStake = () => {
     document.getElementById("connectbtn").style.display = "none";
-    document.getElementById("connect-phone").style.display = "none";
+     
     document.getElementById("text1").style.display = "none";
     document.getElementById("comingsoon").style.display = "block";
   };
@@ -168,15 +168,6 @@ function App() {
     <div>
       <div className="home">
 
-        {/*Socials*/}
-        <div style={{ width: '100%', display: 'flex', flexDirection: 'row-reverse', position: 'absolute', zIndex: '1031' }}>
-          <a href="" target="_blank">
-            <img id="twitter" className="icon" style={{ width: '80px', marginRight: '10px', marginTop: '15px', cursor: 'pointer', zIndex: '1031' }} src="/config/images/twitterp.png"></img>
-          </a>
-          <a href="" target="_blank">
-            <img id="opensea" className="icon" style={{ width: '73px', marginRight: '1px', marginTop: '16px', cursor: 'pointer', zIndex: '1031' }} src="/config/images/opensea.png"></img>
-          </a>
-        </div>
 
     
 
