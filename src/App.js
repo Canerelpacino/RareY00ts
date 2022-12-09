@@ -85,8 +85,8 @@ function App() {
 
   const incrementMintAmount = () => {
     let newMintAmount = mintAmount + 1;
-    if (newMintAmount > 10) {
-      newMintAmount = 10;
+    if (newMintAmount > 5) {
+      newMintAmount = 5;
     }
     setMintAmount(newMintAmount);
 
@@ -215,10 +215,10 @@ function App() {
        <BG2>
 
        <div id="whitelist" onClick={whitelist} style={{marginTop: '35vh', display: 'block', cursor: 'pointer'}}>
-        <p style={{fontFamily: '"yoot", cursive', fontSize: '4.5em'}}>Whitelist</p>
+        <p style={{fontFamily: '"yoot", cursive', fontSize: '6em'}}>Whitelist</p>
        </div>
-       <div onClick={publicmint} id="public" style={{marginTop: '10vh', display: 'block', cursor: 'pointer'}}>
-        <p style={{fontFamily: '"yoot", cursive', fontSize: '4.5em'}}>Public</p>
+       <div onClick={publicmint} id="public" style={{marginTop: '6vh', display: 'block', cursor: 'pointer'}}>
+        <p style={{fontFamily: '"yoot", cursive', fontSize: '6em'}}>Public</p>
        </div>
 
          <div id="connectbtn1" style={{display: 'none'}}

@@ -233,6 +233,15 @@
 }
 
 @media (max-width: 1400px) {
+ #whitelist{
+  font-size: 0.8em;
+ }
+
+ #public{
+  font-size: 0.8em;
+ }
+
+
   #connectbtn {
     top: 15vh;
     font-size: 5em;
