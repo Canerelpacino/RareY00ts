@@ -1,6 +1,6 @@
 {
-  "CONTRACT_ADDRESS": "",
-  "SCAN_LINK": "",
+  "CONTRACT_ADDRESS": "0x2EB9d668aD3c98f20A4867eC754Bbe117856c9Af",
+  "SCAN_LINK": "https://etherscan.io/address/0x2eb9d668ad3c98f20a4867ec754bbe117856c9af",
   "NETWORK": {
     "NAME": "Ethereum",
     "SYMBOL": "ETH",
@@ -8,7 +8,7 @@
   },
   "NFT_NAME": "RAREY00TS",
   "SYMBOL": "RAREY00TS",
-  "MAX_SUPPLY": 3666,
+  "MAX_SUPPLY": 7500,
   "WEI_COST": 5000000000000000,
   "DISPLAY_COST": 0.005,
   "GAS_LIMIT": 120000,

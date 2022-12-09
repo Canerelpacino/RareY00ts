@@ -8,7 +8,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import $ from "jquery";
 
-
+var status = 0;
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -41,9 +41,9 @@ function App() {
   const claimNFTs = () => {
     let cost = CONFIG.WEI_COST;
 
-   /*  if (mintAmount > 1) {
-      cost = 3000000000000000;
-    } */
+   if (status == 1) {
+      cost = 2500000000000000;
+    };
 
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalCostWei = String(cost * mintAmount);
@@ -89,6 +89,14 @@ function App() {
       newMintAmount = 10;
     }
     setMintAmount(newMintAmount);
+
+    if(status == 1){
+      let newMintAmount = mintAmount + 1;
+    if (newMintAmount > 5) {
+      newMintAmount = 5;
+    }
+    setMintAmount(newMintAmount);
+    }
   };
 
 
@@ -118,13 +126,14 @@ function App() {
   }, [blockchain.account]);
 
   const connected = () => {
-    document.getElementById("connectbtn").style.display = "none";
-     
+    document.getElementById("connectbtn1").style.display = "none";
+    document.getElementById("connectbtn2").style.display = "none";
     document.getElementById("text1").style.display = "none";
   };
 
   const changeAbout = () => {
-    document.getElementById("connectbtn").style.display = "none";
+    document.getElementById("connectbtn1").style.display = "none";
+    document.getElementById("connectbtn2").style.display = "none";
      
     document.getElementById("text1").style.display = "none";
     document.getElementById("text1").style.display = "flex";
@@ -132,7 +141,8 @@ function App() {
   };
 
   const changeTeam = () => {
-    document.getElementById("connectbtn").style.display = "none";
+    document.getElementById("connectbtn1").style.display = "none";
+    document.getElementById("connectbtn2").style.display = "none";
      
     document.getElementById("text1").style.display = "none";
     document.getElementById("comingsoon").style.display = "none";
@@ -140,24 +150,43 @@ function App() {
 
 
   const changeMint = () => {
-    document.getElementById("connectbtn").style.display = "flex";
+    document.getElementById("connectbtn1").style.display = "none";
+    document.getElementById("connectbtn2").style.display = "none";
 
     document.getElementById("text1").style.display = "none";
     document.getElementById("comingsoon").style.display = "none";
   };
 
   const changeMarket = () => {
-    document.getElementById("connectbtn").style.display = "none";
+    document.getElementById("connectbtn1").style.display = "none";
+    document.getElementById("connectbtn2").style.display = "none";
      
     document.getElementById("text1").style.display = "none";
     document.getElementById("comingsoon").style.display = "block";
   };
 
   const changeStake = () => {
-    document.getElementById("connectbtn").style.display = "none";
+    document.getElementById("connectbtn1").style.display = "none";
+    document.getElementById("connectbtn2").style.display = "none";
      
     document.getElementById("text1").style.display = "none";
     document.getElementById("comingsoon").style.display = "block";
+  };
+
+  const whitelist = () => {
+    status = 1;
+    console.log(status);
+    document.getElementById("whitelist").style.display = "none";
+    document.getElementById("public").style.display = "none";
+    document.getElementById("connectbtn1").style.display = "block";
+  };
+
+  const publicmint = () => {
+    status = 0;
+    console.log(status);
+    document.getElementById("whitelist").style.display = "none";
+    document.getElementById("public").style.display = "none";
+    document.getElementById("connectbtn2").style.display = "block";
   };
 
 
@@ -177,7 +206,15 @@ function App() {
 
        <div style={{width: '100%', height: '80vh'}}>
        <BG2>
-        <div id="connectbtn"
+
+       <div id="whitelist" onClick={whitelist} style={{marginTop: '35vh', display: 'block', cursor: 'pointer'}}>
+        <p style={{fontFamily: '"yoot", cursive', fontSize: '4.5em'}}>Whitelist</p>
+       </div>
+       <div onClick={publicmint} id="public" style={{marginTop: '10vh', display: 'block', cursor: 'pointer'}}>
+        <p style={{fontFamily: '"yoot", cursive', fontSize: '4.5em'}}>Public</p>
+       </div>
+
+         <div id="connectbtn1" style={{display: 'none'}}
             onClick={(e) => {
               e.preventDefault();
               dispatch(connect());
@@ -186,20 +223,36 @@ function App() {
             }}
           >
             CONNECT
-          </div>
+          </div> 
+
+          <div id="connectbtn2" style={{display: 'none'}}
+            onClick={(e) => {
+              e.preventDefault();
+              dispatch(connect());
+              getData();
+              connected();
+            }}
+          >
+            CONNECT
+          </div> 
 
           <div id="about" onClick={changeAbout}>About</div>
           <div id="mint" onClick={changeMint}>Mint</div>
-          <div id="team" onClick={changeTeam}>Team</div>
           <div id="stake" onClick={changeStake}>Stake</div>
           <div id="market" onClick={changeMarket}>Market</div>
 
 
-          <div style={{width: '30%', marginTop: '36vh', display: 'none'}} id="text1">
-            <p>Rare y00ts is "the art y00ts should have been." Together we will discover Rare y00tsland and crown 
-              the Rare y00ts king. Holding a Rare y00ts gives you access to Rare y00tsland which unlocks a range of web2, web3, and 
-              irl benefits. Our art was meticulously designed by two y00ts holders who love their y00ts but wanted more 
-              diversity in the looks. "Not all y00ts wear glasses" half the supply and double the traits on Ethereum blockchain.</p>
+          <div style={{width: '32%', marginTop: '30vh', display: 'none'}} id="text1">
+            <p>Rare y00ts is "the art the y00ts should have been" and together we will discover Rare y00tsland 
+              where we crown the Rare y00ts king. Holding a Rare y00ts gives you access to Rare y00tslands which 
+              unlocks a range of web2, web3, and irl benefits. Our art was meticulously designed by two y00ts holders 
+              who love and our proud of their y00ts, but wanted more diversity in the looks. "Not all y00ts wear glasses," 
+              half the supply and double the traits on the Ethereum blockchain. Our goal is to create a hands on community 
+              where the holder's are in charge. Staking will be available in the days to come after mint with our market place 
+              where holder's can stake their NFT and earn our in house currency to make project related purchases 
+              (not available to swap to ETH - just yet, maybe in the future). After launch we will make our holder's 
+              Discord available to all Rare y00ts holders! Team will mint 500 Rare 
+              y00ts to our treasury for future marketing purposes.</p>
           </div>
 
           <div style={{width: '30%', marginTop: '40vh', display: 'none'}} id="comingsoon">
@@ -219,7 +272,7 @@ function App() {
           {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
             <>
               <div
-                className="soldout" style={{ fontFamily: "'yoot', cursive", color: 'black'}}
+                className="soldout" style={{ fontFamily: "'yoot', cursive", color: 'black', marginTop: '12vh', fontSize: '7em'}}
               >
                 SOLD OUT!
               </div>
@@ -277,7 +330,7 @@ function App() {
                     </btn>
                   </s.Container>
                   <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                    <div className="mintbtn" style={{ fontFamily: "'yoot', cursive", color: 'black', fontSize: '4em', cursor: 'pointer', marginTop: '2px', marginLeft: '8px' }}
+                    <div className="mintbtn" style={{ fontFamily: "'yoot', cursive", color: 'black', fontSize: '6em', cursor: 'pointer', marginTop: '2px', marginLeft: '8px' }}
                       disabled={claimingNft ? 1 : 0}
                       onClick={(e) => {
                         e.preventDefault();
@@ -285,7 +338,7 @@ function App() {
                         getData();
                       }}
                     >
-                      MINT!
+                      MINT
                     </div>
                   </s.Container>
                 </>
