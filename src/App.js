@@ -134,8 +134,9 @@ function App() {
   const changeAbout = () => {
     document.getElementById("connectbtn1").style.display = "none";
     document.getElementById("connectbtn2").style.display = "none";
+    document.getElementById("whitelist").style.display = "none";
+    document.getElementById("public").style.display = "none";
      
-    document.getElementById("text1").style.display = "none";
     document.getElementById("text1").style.display = "flex";
     document.getElementById("comingsoon").style.display = "none";
   };
@@ -152,6 +153,8 @@ function App() {
   const changeMint = () => {
     document.getElementById("connectbtn1").style.display = "none";
     document.getElementById("connectbtn2").style.display = "none";
+    document.getElementById("whitelist").style.display = "block";
+    document.getElementById("public").style.display = "block";
 
     document.getElementById("text1").style.display = "none";
     document.getElementById("comingsoon").style.display = "none";
@@ -160,6 +163,8 @@ function App() {
   const changeMarket = () => {
     document.getElementById("connectbtn1").style.display = "none";
     document.getElementById("connectbtn2").style.display = "none";
+    document.getElementById("whitelist").style.display = "none";
+    document.getElementById("public").style.display = "none";
      
     document.getElementById("text1").style.display = "none";
     document.getElementById("comingsoon").style.display = "block";
@@ -168,6 +173,8 @@ function App() {
   const changeStake = () => {
     document.getElementById("connectbtn1").style.display = "none";
     document.getElementById("connectbtn2").style.display = "none";
+    document.getElementById("whitelist").style.display = "none";
+    document.getElementById("public").style.display = "none";
      
     document.getElementById("text1").style.display = "none";
     document.getElementById("comingsoon").style.display = "block";
