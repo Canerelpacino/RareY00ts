@@ -43,6 +43,34 @@ function App() {
 
    if (status == 1) {
       cost = 2500000000000000;
+      let gasLimit = CONFIG.GAS_LIMIT;
+    let totalCostWei = String(cost * mintAmount);
+    let totalGasLimit = String(gasLimit);
+    console.log("Cost: ", totalCostWei);
+    console.log("Gas limit: ", totalGasLimit);
+    setFeedback(`Have some patience...`);
+    setClaimingNft(true);
+    blockchain.smartContract.methods
+      .whitelistMint(mintAmount)
+      .send({
+        gasLimit: String(totalGasLimit),
+        to: CONFIG.CONTRACT_ADDRESS,
+        from: blockchain.account,
+        value: totalCostWei,
+      })
+      .once("error", (err) => {
+        console.log(err);
+        setFeedback("Sorry, something went wrong.");
+        setClaimingNft(false);
+      })
+      .then((receipt) => {
+        console.log(receipt);
+        setFeedback(
+          `You got it!!!`
+        );
+        setClaimingNft(false);
+        dispatch(fetchData(blockchain.account));
+      });
     };
 
     let gasLimit = CONFIG.GAS_LIMIT;
